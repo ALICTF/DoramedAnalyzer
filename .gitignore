@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+final_output.json
+sample_body.pdf
+sample_bp.pdf

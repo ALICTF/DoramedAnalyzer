@@ -1,0 +1,694 @@
+{
+  "files": [
+    {
+      "file": "body_composition.pdf",
+      "identified_type": "body_composition",
+      "raw_data_extracted": {
+        "height_cm": 184,
+        "gender": "Male",
+        "measurement_date": "2025-07-07 14:22:44",
+        "body_score": 73,
+        "weight_kg": 124.5,
+        "skeletal_muscle_kg": 49.1,
+        "fat_mass_kg": 40.1,
+        "weight_control_kg": 28.8,
+        "fat_control_kg": 28.7,
+        "muscle_control_kg": 0.0,
+        "muscle_kg": 49.1,
+        "visceral_fat_grade": 17,
+        "bmr_kcal": 2195,
+        "subcutaneous_fat_percent": 23.0,
+        "smi": 11.2,
+        "body_age": 26,
+        "bmi": 36.8,
+        "extraction_method": "text"
+      },
+      "analysis_result": {
+        "kind": "obesity",
+        "title": "چاقی (خطر بالا)",
+        "message": "هشدار: شاخص توده بدنی در محدوده «چاقی» است.",
+        "severity": "critical",
+        "value": 36.8,
+        "unit": "kg/m²",
+        "metric": {
+          "height_cm": 184,
+          "gender": "Male",
+          "measurement_date": "2025-07-07 14:22:44",
+          "body_score": 73,
+          "weight_kg": 124.5,
+          "skeletal_muscle_kg": 49.1,
+          "fat_mass_kg": 40.1,
+          "weight_control_kg": 28.8,
+          "fat_control_kg": 28.7,
+          "muscle_control_kg": 0.0,
+          "muscle_kg": 49.1,
+          "visceral_fat_grade": 17,
+          "bmr_kcal": 2195,
+          "subcutaneous_fat_percent": 23.0,
+          "smi": 11.2,
+          "body_age": 26,
+          "bmi": 36.8,
+          "extraction_method": "text"
+        }
+      },
+      "error": null,
+      "ai_usage": {
+        "used_ai": false,
+        "provider": null,
+        "models": [],
+        "summary": {
+          "calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost_usd": 0.0,
+          "pricing_configured": false,
+          "currency": "USD",
+          "pricing_note": "AI was not used."
+        }
+      }
+    },
+    {
+      "file": "blood_pressure.pdf",
+      "identified_type": "blood_pressure",
+      "raw_data_extracted": {
+        "user_name": "Mostafa",
+        "device": "BP2 1723",
+        "measurement_date": "21 Jul 2025, 02:26 PM",
+        "systolic_mmhg": 123,
+        "diastolic_mmhg": 66,
+        "pulse_bpm": 75,
+        "map_mmhg": 85,
+        "extraction_method": "text",
+        "formatted_bp": "123/66"
+      },
+      "analysis_result": {
+        "kind": "elevated",
+        "title": "فشار خون افزایش‌یافته",
+        "message": "پیش‌فشار خون. مراقب مصرف نمک و استرس باشید.",
+        "severity": "medium",
+        "value": 123.0,
+        "unit": "mmHg",
+        "metric": {
+          "user_name": "Mostafa",
+          "device": "BP2 1723",
+          "measurement_date": "21 Jul 2025, 02:26 PM",
+          "systolic_mmhg": 123,
+          "diastolic_mmhg": 66,
+          "pulse_bpm": 75,
+          "map_mmhg": 85,
+          "extraction_method": "text",
+          "formatted_bp": "123/66"
+        }
+      },
+      "error": null,
+      "ai_usage": {
+        "used_ai": false,
+        "provider": null,
+        "models": [],
+        "summary": {
+          "calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost_usd": 0.0,
+          "pricing_configured": false,
+          "currency": "USD",
+          "pricing_note": "AI was not used."
+        }
+      }
+    },
+    {
+      "file": "o2.pdf",
+      "identified_type": "oxygen_level",
+      "raw_data_extracted": {
+        "session": {
+          "start_time": "09:35 AM",
+          "end_time": "09:40 AM",
+          "total_duration": "04:56",
+          "o2_score": null
+        },
+        "oxygen_summary": {
+          "max": 97,
+          "avg": 96,
+          "min": 93
+        },
+        "pulse_rate_summary": {
+          "max": 86,
+          "avg": 73,
+          "min": 63
+        },
+        "drops": {
+          "over_4_percent": 0,
+          "over_3_percent": 0
+        },
+        "oxygen_thresholds": [
+          {
+            "range_label": ">=95",
+            "duration": "04:31",
+            "percentage": "91.67%"
+          },
+          {
+            "range_label": "90-94",
+            "duration": "00:24",
+            "percentage": "8.33%"
+          },
+          {
+            "range_label": "<90",
+            "duration": "00:00",
+            "percentage": "0.00%"
+          }
+        ],
+        "extraction_method": "vision"
+      },
+      "analysis_result": {
+        "kind": "mild_hypoxia",
+        "title": "افت اکسیژن خفیف",
+        "message": "افت خفیف اکسیژن مشاهده شد. در صورت تداوم بررسی شود.",
+        "severity": "medium",
+        "value": 93.0,
+        "unit": "%",
+        "metric": {
+          "session": {
+            "start_time": "09:35 AM",
+            "end_time": "09:40 AM",
+            "total_duration": "04:56",
+            "o2_score": null
+          },
+          "oxygen_summary": {
+            "max": 97,
+            "avg": 96,
+            "min": 93
+          },
+          "pulse_rate_summary": {
+            "max": 86,
+            "avg": 73,
+            "min": 63
+          },
+          "drops": {
+            "over_4_percent": 0,
+            "over_3_percent": 0
+          },
+          "oxygen_thresholds": [
+            {
+              "range_label": ">=95",
+              "duration": "04:31",
+              "percentage": "91.67%"
+            },
+            {
+              "range_label": "90-94",
+              "duration": "00:24",
+              "percentage": "8.33%"
+            },
+            {
+              "range_label": "<90",
+              "duration": "00:00",
+              "percentage": "0.00%"
+            }
+          ],
+          "extraction_method": "vision"
+        }
+      },
+      "error": null,
+      "ai_usage": {
+        "used_ai": true,
+        "provider": "gapgpt",
+        "models": [
+          {
+            "provider": "gapgpt",
+            "model": "gemini-2.5-flash-lite",
+            "calls": 1,
+            "input_tokens": 509,
+            "output_tokens": 256,
+            "total_tokens": 765,
+            "estimated_cost_usd": 0.0001533,
+            "pricing_configured": true,
+            "operations": [
+              {
+                "operation": "oxygen.vision_extraction",
+                "input_tokens": 509,
+                "output_tokens": 256,
+                "total_tokens": 765,
+                "estimated_cost_usd": 0.0001533,
+                "pricing_configured": true
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "calls": 1,
+          "input_tokens": 509,
+          "output_tokens": 256,
+          "total_tokens": 765,
+          "estimated_cost_usd": 0.0001533,
+          "pricing_configured": true,
+          "currency": "USD",
+          "pricing_note": null
+        }
+      }
+    },
+    {
+      "file": "ecg.pdf",
+      "identified_type": "ecg",
+      "raw_data_extracted": {
+        "waveform_analysis": {
+          "rhythm_regularity": "regular",
+          "p_wave_visibility": "visible",
+          "st_segment_status": "normal",
+          "overall_visual_impression": "normal sinus rhythm"
+        },
+        "heart_rate_bpm": 68,
+        "extraction_method": "vision"
+      },
+      "analysis_result": {
+        "kind": "normal",
+        "title": "نوار قلب نرمال",
+        "message": "ریتم و ضربان قلب شما طبیعی ارزیابی شده است.",
+        "severity": "low",
+        "value": 68.0,
+        "unit": "bpm",
+        "metric": {
+          "waveform_analysis": {
+            "rhythm_regularity": "regular",
+            "p_wave_visibility": "visible",
+            "st_segment_status": "normal",
+            "overall_visual_impression": "normal sinus rhythm"
+          },
+          "heart_rate_bpm": 68,
+          "extraction_method": "vision"
+        }
+      },
+      "error": null,
+      "ai_usage": {
+        "used_ai": true,
+        "provider": "gapgpt",
+        "models": [
+          {
+            "provider": "gapgpt",
+            "model": "gemini-2.5-flash-lite",
+            "calls": 1,
+            "input_tokens": 422,
+            "output_tokens": 76,
+            "total_tokens": 498,
+            "estimated_cost_usd": 7.26e-05,
+            "pricing_configured": true,
+            "operations": [
+              {
+                "operation": "ecg.vision_extraction",
+                "input_tokens": 422,
+                "output_tokens": 76,
+                "total_tokens": 498,
+                "estimated_cost_usd": 7.26e-05,
+                "pricing_configured": true
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "calls": 1,
+          "input_tokens": 422,
+          "output_tokens": 76,
+          "total_tokens": 498,
+          "estimated_cost_usd": 7.26e-05,
+          "pricing_configured": true,
+          "currency": "USD",
+          "pricing_note": null
+        }
+      }
+    },
+    {
+      "file": "CBC.pdf",
+      "identified_type": "Complete Blood Count (CBC) - Blood Test",
+      "raw_data_extracted": null,
+      "analysis_result": null,
+      "error": "list indices must be integers or slices, not str",
+      "ai_usage": {
+        "used_ai": true,
+        "provider": "gapgpt",
+        "models": [
+          {
+            "provider": "gapgpt",
+            "model": "gemini-2.5-flash-lite",
+            "calls": 1,
+            "input_tokens": 446,
+            "output_tokens": 975,
+            "total_tokens": 1421,
+            "estimated_cost_usd": 0.0004346,
+            "pricing_configured": true,
+            "operations": [
+              {
+                "operation": "generic.vision_extraction",
+                "input_tokens": 446,
+                "output_tokens": 975,
+                "total_tokens": 1421,
+                "estimated_cost_usd": 0.0004346,
+                "pricing_configured": true
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "calls": 1,
+          "input_tokens": 446,
+          "output_tokens": 975,
+          "total_tokens": 1421,
+          "estimated_cost_usd": 0.0004346,
+          "pricing_configured": true,
+          "currency": "USD",
+          "pricing_note": null
+        }
+      }
+    },
+    {
+      "file": "inbody.pdf",
+      "identified_type": "Generic Body Composition - Custom Scan",
+      "raw_data_extracted": {
+        "patient_metadata": {
+          "id": "InBody570",
+          "height": "193cm",
+          "age": "36",
+          "gender": "Male",
+          "test_date": "2014.11.19",
+          "test_time": "10:48"
+        },
+        "body_composition_analysis": {
+          "total_body_water": {
+            "value": "60.5",
+            "unit": "L",
+            "reference_range": "(46.1~56.3)"
+          },
+          "protein": {
+            "value": "16.2",
+            "unit": "(kg)",
+            "reference_range": "(12.3~15.1)"
+          },
+          "minerals": {
+            "value": "5.58",
+            "unit": "(kg)",
+            "reference_range": "(4.27~5.21)"
+          },
+          "body_fat_mass": {
+            "value": "15.1",
+            "unit": "(kg)",
+            "reference_range": "(9.8~19.7)"
+          }
+        },
+        "muscle_fat_analysis": {
+          "weight": {
+            "unit": "(kg)",
+            "values": [
+              "97.4"
+            ]
+          },
+          "smm": {
+            "label": "Skeletal Muscle Mass",
+            "unit": "(kg)",
+            "values": [
+              "46.9"
+            ]
+          },
+          "body_fat_mass": {
+            "unit": "(kg)",
+            "values": [
+              "15.1"
+            ]
+          }
+        },
+        "obesity_analysis": {
+          "bmi": {
+            "unit": "(kg/m²)",
+            "value": "26.1"
+          },
+          "pbf": {
+            "label": "Percent Body Fat",
+            "unit": "(%)",
+            "value": "15.5"
+          }
+        },
+        "segmental_lean_analysis": {
+          "right_arm": {
+            "unit": "(kg)",
+            "value": "5.18",
+            "percentage": "126.5"
+          },
+          "left_arm": {
+            "unit": "(kg)",
+            "value": "5.30",
+            "percentage": "129.3"
+          },
+          "trunk": {
+            "unit": "(kg)",
+            "value": "37.3",
+            "percentage": "114.3"
+          },
+          "right_leg": {
+            "unit": "(kg)",
+            "value": "12.41",
+            "percentage": "108.9"
+          },
+          "left_leg": {
+            "unit": "(kg)",
+            "value": "12.48",
+            "percentage": "109.6"
+          }
+        },
+        "body_water_analysis": {
+          "ecw_ratio": {
+            "value": "0.380"
+          }
+        },
+        "body_composition_history": {
+          "weight": {
+            "unit": "(kg)",
+            "value": "97.4"
+          },
+          "smm": {
+            "label": "Skeletal Muscle Mass",
+            "unit": "(kg)",
+            "value": "46.9"
+          },
+          "pbf": {
+            "label": "Percent Body Fat",
+            "unit": "(%)",
+            "value": "15.5"
+          },
+          "ecw_ratio": {
+            "value": "0.380"
+          }
+        },
+        "inbody_score": {
+          "score": "92/100",
+          "comment": "Total score that reflects the evaluation of body composition. A muscular person may score over 100 points."
+        },
+        "weight_control": {
+          "target_weight": "96.8 kg",
+          "weight_control": "-0.6 kg",
+          "fat_control": "-0.6 kg",
+          "muscle_control": "0.0 kg"
+        },
+        "obesity_evaluation": {
+          "bmi": "Slightly Over",
+          "pbf": "Normal"
+        },
+        "body_balance_evaluation": {
+          "upper": "Balanced",
+          "lower": "Balanced",
+          "upper_lower": "Balanced"
+        },
+        "segmental_fat_analysis": {
+          "right_arm": {
+            "value": "0.5 kg",
+            "percentage": "68.8%"
+          },
+          "left_arm": {
+            "value": "0.5 kg",
+            "percentage": "63.7%"
+          },
+          "trunk": {
+            "value": "8.8 kg",
+            "percentage": "170.6%"
+          },
+          "right_leg": {
+            "value": "1.9 kg",
+            "percentage": "91.4%"
+          },
+          "left_leg": {
+            "value": "1.9 kg",
+            "percentage": "91.6%"
+          }
+        },
+        "visceral_fat_level": {
+          "level": "7",
+          "low": "Low",
+          "high": "High"
+        },
+        "research_parameters": {
+          "intracellular_water": {
+            "value": "37.5 L",
+            "reference_range": "(28.5~34.9)"
+          },
+          "extracellular_water": {
+            "value": "23.0 L",
+            "reference_range": "(17.5~21.5)"
+          },
+          "basal_metabolic_rate": {
+            "value": "2148 kcal"
+          },
+          "waist_hip_ratio": {
+            "value": "0.94",
+            "reference_range": "(0.80~0.90)"
+          },
+          "visceral_fat_level": {
+            "value": "7",
+            "reference_range": "(1~9)"
+          },
+          "bone_mineral_content": {
+            "value": "4.63 kg",
+            "reference_range": "(3.51~4.29)"
+          },
+          "body_cell_mass": {
+            "value": "53.7 kg",
+            "reference_range": "(41.0~50.0)"
+          },
+          "arm_circumference": {
+            "value": "36.1 cm"
+          },
+          "arm_muscle_circumference": {
+            "value": "33.9 cm"
+          }
+        },
+        "impedance": {
+          "frequency": [
+            "5 kHz",
+            "50 kHz",
+            "500 kHz"
+          ],
+          "ra": [
+            "284.9",
+            "233.6",
+            "197.3"
+          ],
+          "la": [
+            "274.9",
+            "233.6",
+            "202.5"
+          ],
+          "tr": [
+            "22.1",
+            "17.7",
+            "13.1"
+          ],
+          "rl": [
+            "265.7",
+            "232.1",
+            "204.2"
+          ],
+          "ll": [
+            "261.1",
+            "227.6",
+            "200.1"
+          ]
+        },
+        "extraction_method": "vision"
+      },
+      "analysis_result": null,
+      "error": null,
+      "ai_usage": {
+        "used_ai": true,
+        "provider": "gapgpt",
+        "models": [
+          {
+            "provider": "gapgpt",
+            "model": "gemini-2.5-flash-lite",
+            "calls": 1,
+            "input_tokens": 442,
+            "output_tokens": 1866,
+            "total_tokens": 2308,
+            "estimated_cost_usd": 0.0007906,
+            "pricing_configured": true,
+            "operations": [
+              {
+                "operation": "generic.vision_extraction",
+                "input_tokens": 442,
+                "output_tokens": 1866,
+                "total_tokens": 2308,
+                "estimated_cost_usd": 0.0007906,
+                "pricing_configured": true
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "calls": 1,
+          "input_tokens": 442,
+          "output_tokens": 1866,
+          "total_tokens": 2308,
+          "estimated_cost_usd": 0.0007906,
+          "pricing_configured": true,
+          "currency": "USD",
+          "pricing_note": null
+        }
+      }
+    }
+  ],
+  "batch_ai_usage": {
+    "used_ai": true,
+    "provider": "gapgpt",
+    "models": [
+      {
+        "provider": "gapgpt",
+        "model": "gemini-2.5-flash-lite",
+        "calls": 4,
+        "input_tokens": 1819,
+        "output_tokens": 3173,
+        "total_tokens": 4992,
+        "estimated_cost_usd": 0.0014511,
+        "pricing_configured": true,
+        "operations": [
+          {
+            "operation": "oxygen.vision_extraction",
+            "input_tokens": 509,
+            "output_tokens": 256,
+            "total_tokens": 765,
+            "estimated_cost_usd": 0.0001533,
+            "pricing_configured": true
+          },
+          {
+            "operation": "ecg.vision_extraction",
+            "input_tokens": 422,
+            "output_tokens": 76,
+            "total_tokens": 498,
+            "estimated_cost_usd": 7.26e-05,
+            "pricing_configured": true
+          },
+          {
+            "operation": "generic.vision_extraction",
+            "input_tokens": 446,
+            "output_tokens": 975,
+            "total_tokens": 1421,
+            "estimated_cost_usd": 0.0004346,
+            "pricing_configured": true
+          },
+          {
+            "operation": "generic.vision_extraction",
+            "input_tokens": 442,
+            "output_tokens": 1866,
+            "total_tokens": 2308,
+            "estimated_cost_usd": 0.0007906,
+            "pricing_configured": true
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "calls": 4,
+      "input_tokens": 1819,
+      "output_tokens": 3173,
+      "total_tokens": 4992,
+      "estimated_cost_usd": 0.0014511,
+      "pricing_configured": true,
+      "currency": "USD",
+      "pricing_note": null
+    }
+  }
+}

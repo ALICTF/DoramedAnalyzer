@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "total_files": 6,
+    "successful_files": 5,
+    "failed_files": 1,
+    "batch_ai_usage": {
+      "used_ai": true,
+      "provider": "gapgpt",
+      "models": [
+        {
+          "provider": "gapgpt",
+          "model": "gemini-2.5-flash-lite",
+          "calls": 4,
+          "input_tokens": 1819,
+          "output_tokens": 3173,
+          "total_tokens": 4992,
+          "estimated_cost_usd": 0.0014511,
+          "pricing_configured": true,
+          "operations": [
+            {
+              "operation": "oxygen.vision_extraction",
+              "input_tokens": 509,
+              "output_tokens": 256,
+              "total_tokens": 765,
+              "estimated_cost_usd": 0.0001533,
+              "pricing_configured": true
+            },
+            {
+              "operation": "ecg.vision_extraction",
+              "input_tokens": 422,
+              "output_tokens": 76,
+              "total_tokens": 498,
+              "estimated_cost_usd": 7.26e-05,
+              "pricing_configured": true
+            },
+            {
+              "operation": "generic.vision_extraction",
+              "input_tokens": 446,
+              "output_tokens": 975,
+              "total_tokens": 1421,
+              "estimated_cost_usd": 0.0004346,
+              "pricing_configured": true
+            },
+            {
+              "operation": "generic.vision_extraction",
+              "input_tokens": 442,
+              "output_tokens": 1866,
+              "total_tokens": 2308,
+              "estimated_cost_usd": 0.0007906,
+              "pricing_configured": true
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "calls": 4,
+        "input_tokens": 1819,
+        "output_tokens": 3173,
+        "total_tokens": 4992,
+        "estimated_cost_usd": 0.0014511,
+        "pricing_configured": true,
+        "currency": "USD",
+        "pricing_note": null
+      }
+    }
+  },
+  "files": [
+    {
+      "file": "body_composition.pdf",
+      "identified_type": "body_composition",
+      "extraction_method": "text",
+      "analysis_kind": "obesity",
+      "analysis_severity": "critical",
+      "error": null,
+      "ai_calls": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "file": "blood_pressure.pdf",
+      "identified_type": "blood_pressure",
+      "extraction_method": "text",
+      "analysis_kind": "elevated",
+      "analysis_severity": "medium",
+      "error": null,
+      "ai_calls": 0,
+      "estimated_cost_usd": 0.0
+    },
+    {
+      "file": "o2.pdf",
+      "identified_type": "oxygen_level",
+      "extraction_method": "vision",
+      "analysis_kind": "mild_hypoxia",
+      "analysis_severity": "medium",
+      "error": null,
+      "ai_calls": 1,
+      "estimated_cost_usd": 0.0001533
+    },
+    {
+      "file": "ecg.pdf",
+      "identified_type": "ecg",
+      "extraction_method": "vision",
+      "analysis_kind": "normal",
+      "analysis_severity": "low",
+      "error": null,
+      "ai_calls": 1,
+      "estimated_cost_usd": 7.26e-05
+    },
+    {
+      "file": "CBC.pdf",
+      "identified_type": "Complete Blood Count (CBC) - Blood Test",
+      "extraction_method": null,
+      "analysis_kind": null,
+      "analysis_severity": null,
+      "error": "list indices must be integers or slices, not str",
+      "ai_calls": 1,
+      "estimated_cost_usd": 0.0004346
+    },
+    {
+      "file": "inbody.pdf",
+      "identified_type": "Generic Body Composition - Custom Scan",
+      "extraction_method": "vision",
+      "analysis_kind": null,
+      "analysis_severity": null,
+      "error": null,
+      "ai_calls": 1,
+      "estimated_cost_usd": 0.0007906
+    }
+  ]
+}

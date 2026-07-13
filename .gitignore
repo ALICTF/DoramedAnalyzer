@@ -1,6 +1,18 @@
-__pycache__/
-*.pyc
+# Environments
+.env
+venv/
+env/
+ENV/
 
-final_output.json
-sample_body.pdf
-sample_bp.pdf
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Project specific files
+*.pdf
+
+# IDEs
+.vscode/
+.idea/

@@ -11,6 +11,8 @@ from parsers.oxygen import OxygenLevelParser
 from parsers.ecg import ECGParser
 from parsers.generic import GenericMedicalParser
 from services.document_classifier import MedicalDocumentClassifier
+from services.report_validation import ReportValidationError, ReportValidationService
+from validators.title_match import normalize_category
 
 logger = get_logger("pdf_extractor")
 
@@ -31,6 +33,7 @@ class PDFReportParser:
         self.settings = get_settings()
         self.api_key = api_key or self.settings.api_key
         self.client = OpenAI(base_url=self.settings.openai_base_url, api_key=self.api_key) if self.api_key else None
+        self.validation_service = ReportValidationService()
             
         logger.info("Parser initialized. vision_enabled=%s", bool(self.client))
 
@@ -74,9 +77,32 @@ class PDFReportParser:
                 sample_text = "\n".join(doc[index].get_text("text") for index in range(sample_pages))
         except Exception as e:
             compact_warning(logger, "Sample text extraction", e, file=filename)
-            
+
+        validation_title = self._validation_title(frontend_test_name, filename)
+        try:
+            validation = self.validation_service.validate_title_and_content(
+                provided_title=validation_title,
+                sample_text=sample_text,
+                pdf_bytes=pdf_bytes,
+                filename=filename,
+                content_filename="" if validation_title == filename else filename,
+                classifier=classifier,
+                identify_type=self._identify_type,
+                detect_content_category_with_ai=self._detect_content_category_with_ai,
+            )
+        except ReportValidationError as exc:
+            validation = exc.validation
+            return {
+                "type": validation_title,
+                "filename": filename,
+                "data": None,
+                "error": validation.message,
+                "ai_usage": usage_tracker.to_dict(),
+                "title_validation": validation.to_dict(),
+            }
+
         report_type = frontend_test_name if frontend_test_name else self._identify_type(sample_text, filename)
-        
+
         if report_type in parsers:
             logger.info("Parser selected. type=%s strategy=dedicated", report_type)
             parser = parsers[report_type]
@@ -126,7 +152,43 @@ class PDFReportParser:
             "data": result if not has_error else None,
             "error": result.get("error") if has_error else None,
             "ai_usage": usage_tracker.to_dict(),
+            "title_validation": validation.to_dict(),
         }
+
+    def _validation_title(self, frontend_test_name: Optional[str], filename: str) -> Optional[str]:
+        if frontend_test_name and frontend_test_name.strip():
+            return frontend_test_name
+        return filename or None
+
+    def _detect_content_category_with_ai(
+        self,
+        sample_text: str,
+        pdf_bytes: bytes,
+        filename: str,
+        classifier: MedicalDocumentClassifier,
+    ) -> str:
+        if not self.client:
+            return "unknown"
+
+        try:
+            if sample_text.strip():
+                classification = classifier.classify_text(sample_text, filename=filename)
+            else:
+                generic_parser = GenericMedicalParser(
+                    self.client,
+                    test_name="Unknown Medical Document",
+                    usage_tracker=classifier.usage_tracker,
+                )
+                first_page = next(generic_parser._convert_pdf_pages_to_base64(pdf_bytes), None)
+                if not first_page:
+                    return "unknown"
+                _, image_base64 = first_page
+                classification = classifier.classify_vision(image_base64, filename=filename)
+        except Exception as exc:
+            compact_warning(logger, "Content category detection", exc, file=filename)
+            return "unknown"
+
+        return normalize_category(classification.document_type) or "unknown"
 
     def _build_parsers(self, usage_tracker: AIUsageTracker) -> Dict[str, Any]:
         return {

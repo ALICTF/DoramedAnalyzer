@@ -8,7 +8,6 @@ from core.ai_usage import aggregate_ai_usage
 from pdf_extractor import PDFReportParser
 
 
-DEFAULT_API_KEY: Final[str] = "sk-ER2rLVhErY64E5EYNwQ1LaF2VUk6VLqq9mlIyHC9HlJJKeCd"
 SAMPLE_REPORTS_DIR: Final[Path] = Path(__file__).resolve().parent / "data" / "sample_reports"
 
 TEST_CASES: Final[List[Tuple[str, Optional[str]]]] = [
@@ -22,7 +21,7 @@ TEST_CASES: Final[List[Tuple[str, Optional[str]]]] = [
 
 
 def run_integration_test() -> None:
-    api_key = os.environ.get("GAPGPT_API_KEY", DEFAULT_API_KEY)
+    api_key = os.environ.get("GAPGPT_API_KEY")
     parser = PDFReportParser(api_key=api_key)
     analyzer = HealthAnalyzer()
     results: List[Dict[str, Any]] = []
@@ -30,8 +29,8 @@ def run_integration_test() -> None:
     print("Starting integration test suite.")
     print(f"Sample reports directory: {SAMPLE_REPORTS_DIR}")
 
-    if api_key == DEFAULT_API_KEY:
-        print("Warning: GAPGPT_API_KEY is not set. The fallback key will be used.")
+    if not api_key:
+        print("Warning: GAPGPT_API_KEY is not set. AI-powered fallback will be disabled.")
 
     for file_name, frontend_test_name in TEST_CASES:
         file_path = SAMPLE_REPORTS_DIR / file_name

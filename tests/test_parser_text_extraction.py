@@ -33,3 +33,17 @@ def test_blood_pressure_text_extraction():
     assert result["data"]["systolic_mmhg"] == 123
     assert result["data"]["diastolic_mmhg"] == 66
     assert result["ai_usage"]["summary"]["calls"] == 0
+
+
+def test_filename_is_used_as_validation_title_without_contaminating_content_detection():
+    parser = PDFReportParser(api_key=None)
+    result = parser.parse_file(
+        (SAMPLE_REPORTS_DIR / "body_composition.pdf").read_bytes(),
+        filename="blood_pressure.pdf",
+    )
+
+    assert result["data"] is None
+    assert result["title_validation"]["status"] == "mismatch"
+    assert result["title_validation"]["provided_title"] == "blood_pressure.pdf"
+    assert result["title_validation"]["title_category"] == "blood_pressure"
+    assert result["title_validation"]["content_category"] == "body_composition"

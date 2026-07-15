@@ -1,7 +1,25 @@
 import os
 from dataclasses import dataclass
 from functools import lru_cache
+from pathlib import Path
 from typing import Dict, Optional
+
+
+def load_env_file(path: Optional[str] = None) -> None:
+    """Load simple KEY=VALUE entries from a local .env file if present."""
+    env_path = Path(path or ".env")
+    if not env_path.exists():
+        return
+
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key:
+            os.environ.setdefault(key, value)
 
 
 def _get_int(name: str, default: int) -> int:
@@ -79,6 +97,7 @@ class AppSettings:
 
 @lru_cache(maxsize=1)
 def get_settings() -> AppSettings:
+    load_env_file()
     return AppSettings(
         api_key=os.environ.get("GAPGPT_API_KEY"),
         openai_base_url=os.environ.get("GAPGPT_BASE_URL", "https://api.gapgpt.app/v1"),

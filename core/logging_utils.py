@@ -8,7 +8,6 @@ DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 
 
 def setup_logging(level: Optional[str] = None) -> None:
-    """Configure compact application logs for standalone execution."""
     root_logger = logging.getLogger()
     if root_logger.handlers:
         return

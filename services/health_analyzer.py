@@ -5,7 +5,6 @@ from core.logging_utils import compact_warning, compact_error, get_logger, setup
 setup_logging()
 logger = get_logger("analyzer")
 
-# --- Django Integration Guard ---
 try:
     from apps.analyzer.models import TestFile, AlertKind, HealthAlert
     from django.db import transaction
@@ -62,7 +61,6 @@ def _queue_dangerous_alert_sms(alert: Any) -> None:
         compact_warning(logger, "SMS queue registration", e)
 
 
-# --- Type Definitions ---
 class AnalysisResult(TypedDict):
     kind: str
     title: str
@@ -73,7 +71,6 @@ class AnalysisResult(TypedDict):
     metric: Dict[str, Any]
 
 
-# --- Core Business Logic ---
 class HealthAnalyzer:
 
     def _build_response(

@@ -27,7 +27,6 @@ def test_normalize_uploaded_filenames():
 
 
 def test_normalize_unknown_title_is_none():
-    # "Complete Blood Count" must NOT be read as blood pressure.
     assert normalize_category("Complete Blood Count (CBC)") is None
     assert normalize_category("") is None
     assert normalize_category(None) is None

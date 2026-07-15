@@ -6,7 +6,6 @@ from typing import Dict, Optional
 
 
 def load_env_file(path: Optional[str] = None) -> None:
-    """Load simple KEY=VALUE entries from a local .env file if present."""
     env_path = Path(path or ".env")
     if not env_path.exists():
         return

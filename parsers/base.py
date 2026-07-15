@@ -1,4 +1,3 @@
-# parsers/base.py
 import fitz
 import base64
 from abc import ABC, abstractmethod

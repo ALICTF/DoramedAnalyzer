@@ -1,4 +1,101 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doramed-analyzer"
+version = "2.0.6"
+description = "PDF medical report extraction, validation, and health analysis utilities for Doramed."
+readme = "BACKEND_INTEGRATION_GUIDE.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+authors = [
+    { name = "Doramed" },
+]
+keywords = [
+    "medical-report",
+    "pdf",
+    "health-analysis",
+    "validation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "openai>=1.0.0",
+    "PyMuPDF>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.6.0",
+]
+django = [
+    "django>=4.2",
+]
+
+[project.urls]
+Repository = "https://github.com/doramed-co/doramed_analyzer"
+Mirror = "https://github.com/ALICTF/DoramedAnalyzer"
+
+[tool.setuptools]
+py-modules = [
+    "analyzer",
+    "config",
+    "pdf_extractor",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "core*",
+    "models*",
+    "parsers*",
+    "pipeline*",
+    "prompts*",
+    "services*",
+    "validators*",
+]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = [
+    ".git",
+    ".pytest_cache",
+    "__pycache__",
+    "outputs",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = [
+    "E501",
+]
+
+[tool.coverage.run]
+branch = true
+source = [
+    "core",
+    "models",
+    "parsers",
+    "pipeline",
+    "prompts",
+    "services",
+    "validators",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

@@ -10,16 +10,12 @@ logger = get_logger("report_validation")
 
 
 class ReportValidationError(ValueError):
-    """Raised when the provided report title conflicts with file content."""
-
     def __init__(self, validation: TitleValidation) -> None:
         super().__init__(validation.message)
         self.validation = validation
 
 
 class ReportValidationService:
-    """Validate caller-provided report metadata before parsing the file."""
-
     def validate_title_and_content(
         self,
         *,
@@ -32,16 +28,6 @@ class ReportValidationService:
         identify_type: Callable[[str, str], str],
         detect_content_category_with_ai: Callable[[str, bytes, str, MedicalDocumentClassifier], str],
     ) -> TitleValidation:
-        """Compare the user-selected title with the actual file content.
-
-        The check has two parts:
-        1. Normalize the title/report name sent by the caller.
-        2. Detect the category from file content and compare both categories.
-
-        A mismatch raises ``ReportValidationError`` so the caller can handle it
-        with a normal try/except flow before sending the file deeper into the
-        parsing system.
-        """
         try:
             validation = self._build_validation(
                 provided_title=provided_title,
@@ -96,8 +82,6 @@ class ReportValidationService:
 
         content_category = identify_type(sample_text, content_filename if content_filename is not None else filename)
 
-        # Spend an AI call only when the title is known but content heuristics
-        # cannot categorize the file.
         if content_category == "unknown" and normalize_category(provided_title) is not None:
             content_category = detect_content_category_with_ai(sample_text, pdf_bytes, filename, classifier)
 

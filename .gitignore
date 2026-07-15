@@ -1,18 +1,14 @@
-# Environments
 .env
 venv/
 env/
 ENV/
 
-# Python
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
 
-# Project specific files
 *.pdf
 
-# IDEs
 .vscode/
 .idea/

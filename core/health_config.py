@@ -2,10 +2,7 @@ from enum import Enum
 from typing import Dict, TypedDict
 
 
-# --- Enums & Type Definitions ---
-
 class AlertSeverity(str, Enum):
-    """Standardized severity levels to prevent typo-related bugs."""
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
@@ -13,20 +10,12 @@ class AlertSeverity(str, Enum):
 
 
 class AlertMessage(TypedDict):
-    """Enforces a strict structure for health alert messages."""
     title: str
     msg: str
     severity: AlertSeverity
 
 
-# --- Main Configuration Class ---
-
 class HealthConfig:
-    """Centralized configuration for health thresholds and alert messages."""
-
-    # ==========================================
-    # 1. Body Mass Index (BMI) Configurations
-    # ==========================================
     BMI_THRESHOLDS: Dict[str, float] = {
         "under_weight": 18.5,
         "over_weight": 25.0,
@@ -57,9 +46,6 @@ class HealthConfig:
     }
 
 
-    # ==========================================
-    # 2. Blood Pressure (BP) Configurations
-    # ==========================================
     BP_THRESHOLDS: Dict[str, Dict[str, int]] = {
         "crisis":   {"sys": 180, "dia": 120},
         "stage2":   {"sys": 140, "dia": 90},
@@ -102,9 +88,6 @@ class HealthConfig:
     }
 
 
-    # ==========================================
-    # 3. Blood Oxygen (O2) Configurations
-    # ==========================================
     O2_THRESHOLDS: Dict[str, int] = {
         "severe_hypoxia": 90,  
         "mild_hypoxia": 95    
@@ -129,9 +112,6 @@ class HealthConfig:
     }
 
 
-    # ==========================================
-    # 4. Electrocardiogram (ECG) Configurations
-    # ==========================================
     ECG_THRESHOLDS: Dict[str, int] = {
         "tachycardia": 100,  
         "bradycardia": 60    
